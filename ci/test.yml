@@ -17,4 +17,4 @@ run:
   - |
     cd ./repo
     pip install -r requirements.txt
-    python main.py
+    inv test
