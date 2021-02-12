@@ -1,5 +1,8 @@
 from invoke import task, Collection
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 CI_NAME = Path().cwd().name
 
