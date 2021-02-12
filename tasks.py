@@ -71,6 +71,7 @@ ns = Collection()
 code = Collection('code')
 
 code.add_task(test)
+code.add_task(format)
 
 ci = Collection('ci')
 ci.add_task(server)
