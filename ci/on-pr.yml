@@ -27,7 +27,9 @@ jobs:
       input_mapping:
         repo: pull-request
       privileged: true
-      file: pull-request/ci/tasks/test.yml
+      file: pull-request/ci/tasks/job.yml
+      vars:
+        task_name: code.test
       on_failure:
          put: pull-request
          params:
@@ -52,7 +54,9 @@ jobs:
         context: lint
     - task: unit-test
       privileged: true
-      file: pull-request/ci/tasks/flake8.yml
+      file: pull-request/ci/tasks/job.yml
+      vars:
+        task_name: code_format
       input_mapping:
         repo: pull-request
       on_failure:
