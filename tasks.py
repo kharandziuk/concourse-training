@@ -56,9 +56,11 @@ def set_pipeline(c, name, secrets=None):
 def execute(c):
     run(c, f"fly -t {CI_NAME} execute -i repo=. --config ci/tasks/test.yml")
 
+
 @task
 def test(c):
     run(c, 'python test.py')
+
 
 @task
 def format(c):
