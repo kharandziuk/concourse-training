@@ -56,7 +56,7 @@ jobs:
       privileged: true
       file: pull-request/ci/tasks/job.yml
       vars:
-        task_name: code_format
+        task_name: code.format
       input_mapping:
         repo: pull-request
       on_failure:
