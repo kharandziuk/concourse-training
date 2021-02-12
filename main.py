@@ -1,5 +1,8 @@
-def sum(a, b):
-    return a + b
+def sum(arr):
+    res = 0
+    for x in arr:
+        res += x
+    return res
 
 
 if __name__ == "__main__":
