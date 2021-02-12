@@ -25,7 +25,7 @@ jobs:
         context: test
     - task: unit-test
       privileged: true
-      file: pull-request/ci/jobs/test.yml
+      file: pull-request/ci/tasks/test.yml
       on_failure:
          put: pull-request
          params:
@@ -37,6 +37,7 @@ jobs:
         path: pull-request
         status: success
         context: test
+
   - name: run-flake8
     plan:
     - get: pull-request
@@ -46,10 +47,10 @@ jobs:
       params:
         path: pull-request
         status: pending
-        context: test
+        context: lint
     - task: unit-test
       privileged: true
-      file: pull-request/ci/jobs/flake8.yml
+      file: pull-request/ci/tasks/flake8.yml
       on_failure:
          put: pull-request
          params:
