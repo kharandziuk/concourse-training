@@ -36,10 +36,14 @@ def login(c):
 
 @task(login)
 def set_pipeline(c, name, secrets=None):
+    import json
+    if secrets:
+        secrets = json.loads(secrets)
     secrets = secrets or {}
+    print(secrets)
     params = ' '.join([
         f'-v {k}="{v}"'
-        for k, v in secrets
+        for k, v in secrets.items()
     ])
     run(
         c,
