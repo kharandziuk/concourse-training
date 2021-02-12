@@ -24,6 +24,8 @@ jobs:
         status: pending
         context: test
     - task: unit-test
+      input_mapping:
+        repo: pull-request
       privileged: true
       file: pull-request/ci/tasks/test.yml
       on_failure:
@@ -51,6 +53,8 @@ jobs:
     - task: unit-test
       privileged: true
       file: pull-request/ci/tasks/flake8.yml
+      input_mapping:
+        repo: pull-request
       on_failure:
          put: pull-request
          params:
