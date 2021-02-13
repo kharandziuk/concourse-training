@@ -2,6 +2,7 @@ from invoke import task, Collection
 from pathlib import Path
 from dotenv import load_dotenv
 
+
 load_dotenv()
 
 CI_NAME = Path().cwd().name
@@ -81,3 +82,10 @@ ci.add_task(set_pipeline)
 
 ns.add_collection(ci)
 ns.add_collection(code)
+
+try:
+    from . import tasks_custom as custom_tasks
+except ImportError:
+    custom_tasks = Collection('custom')
+
+ns.add_collection(custom_tasks)

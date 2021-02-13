@@ -1,14 +1,16 @@
 import unittest
-from main import sum
+from flask_webtest import TestApp
+from main import app
 
 
-class TestSum(unittest.TestCase):
+class ExampleTest(unittest.TestCase):
+    def setUp(self):
+        self.app = app
+        self.w = TestApp(self.app)
 
-    def test_sum(self):
-        self.assertEqual(sum([1, 2, 3]), 6)
-
-    def test_sum_tuple(self):
-        self.assertEqual(sum((1, 2, 2)), 5)
+    def test(self):
+        r = self.w.get('/')
+        self.assertEqual(r.text, 'Hello!')
 
 
 if __name__ == '__main__':
