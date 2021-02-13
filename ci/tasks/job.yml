@@ -17,4 +17,4 @@ run:
   - |
     cd ./repo
     pip install -r requirements.txt
-    inv code.test
+    inv ((task_name))
