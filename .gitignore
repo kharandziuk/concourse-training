@@ -1,3 +1,5 @@
+/tmp
+
 concourse/keys/web/
 concourse/keys/worker
 bin/*
